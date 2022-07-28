@@ -23,9 +23,9 @@ pipeline {
         stage('Test') {
             steps {
              
-                 echo "Hello ${env.BUILD_NUMBER}"
+                 echo "buildNumber ${env.BUILD_NUMBER}"
 
-                echo "Biography: ${params.BIOGRAPHY}"
+                echo "Biography: ${env.GIT_COMMIT}"
 
                 echo "Toggle: ${params.TOGGLE}"
 
