@@ -1,10 +1,12 @@
+@Library("tomer-groovy-shared-libary") _
+
 pipeline {
     agent any
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                sourceControl()
             }
         }
         stage('Test') {
