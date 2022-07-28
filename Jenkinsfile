@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps {
              
-                 echo "Hello ${params.PERSON}"
+                 echo "Hello ${env.BUILD_NUMBER}"
 
                 echo "Biography: ${params.BIOGRAPHY}"
 
