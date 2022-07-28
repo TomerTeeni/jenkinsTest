@@ -7,6 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sourceControl()
+                sh 'printenv'
             }
         }
         stage('Test') {
