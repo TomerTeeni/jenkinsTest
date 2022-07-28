@@ -12,7 +12,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+             
+                   wrap([$class: 'BuildUser']) {
+                   sh 'echo "${BUILD_USER}"'
+                  }
             }
         }
         stage('Deploy') {
