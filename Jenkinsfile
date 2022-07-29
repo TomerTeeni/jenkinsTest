@@ -16,6 +16,7 @@ pipeline {
                          archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
                         
                     }
+                }
             }
         }
         stage('Pack') {
