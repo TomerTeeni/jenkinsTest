@@ -11,15 +11,16 @@ pipeline {
                    echo "author : ${author}"
                    sourceControl()
                 }
-                
+                 post {
+                    always {
+                         archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
+                        
+                    }
             }
         }
-        stage('Test') {
+        stage('Pack') {
             steps {
-                script {
-                  def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
-                  echo "author : ${author}"
-                }
+             //  archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
             }
         }
         stage('Deploy') {
