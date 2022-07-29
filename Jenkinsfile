@@ -29,7 +29,7 @@ pipeline {
 
                 echo "Toggle: ${env.GIT_COMMITTER_NAME}"
 
-                echo "Choice: ${params.CHOICE}"
+                echo "Choice: ${env.GIT_AUTHOR_NAME}"
 
                 echo "Password: ${params.PASSWORD}"
             }
@@ -37,14 +37,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                 script {
-                   def fields = env.getEnvironment()
-                   fields.each {
-                        key, value -> println("${key} = ${value}");
-                    }
- 
-                    println(env.PATH)
-               }
+               
             }
         }
     }
