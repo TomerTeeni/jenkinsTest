@@ -21,6 +21,7 @@ pipeline {
         }
         stage('Pack') {
             steps {
+                echo 'Pack'
              //  archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
             }
         }
