@@ -8,8 +8,9 @@ pipeline {
             steps {
                  script {
                   def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
-                  prepareEnv(name:author)
+                 
                 }
+                 prepareEnv(name:author)
             }
         }
         stage('Test') {
