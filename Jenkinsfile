@@ -14,12 +14,7 @@ pipeline {
                 
             }
         }
-         post {
-                    always {
-                         archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
-                        
-                    }
-                }
+        
         stage('Pack') {
             steps {
                 echo 'Pack'
@@ -33,4 +28,10 @@ pipeline {
             }
         }
     }
+     post {
+                    always {
+                         archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
+                        
+                    }
+                }
 }
