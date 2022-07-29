@@ -11,14 +11,15 @@ pipeline {
                    echo "author : ${author}"
                    sourceControl()
                 }
-                 post {
+                
+            }
+        }
+         post {
                     always {
                          archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
                         
                     }
                 }
-            }
-        }
         stage('Pack') {
             steps {
                 echo 'Pack'
