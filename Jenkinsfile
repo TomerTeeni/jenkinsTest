@@ -37,6 +37,14 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                 script {
+                   def fields = env.getEnvironment()
+                   fields.each {
+                        key, value -> println("${key} = ${value}");
+                    }
+ 
+                    println(env.PATH)
+               }
             }
         }
     }
