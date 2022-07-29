@@ -33,10 +33,8 @@ pipeline {
 
                 echo "Password: ${params.PASSWORD}"
                 script {
-                    def browsers = ['chrome', 'firefox']
-                    for (int i = 0; i < browsers.size(); ++i) {
-                        echo "Testing the ${browsers[i]} browser"
-                    }
+                  def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
+                  echo "author : ${author}"
                 }
             }
         }
