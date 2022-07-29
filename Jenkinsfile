@@ -27,7 +27,7 @@ pipeline {
 
                 echo "Biography: ${env.GIT_COMMIT}"
 
-                echo "Toggle: ${env.GIT_COMMITTER_NAME}"
+                echo "Toggle: ${%GIT_AUTHOR_NAME%}"
 
                 echo "Choice: ${env.GIT_AUTHOR_NAME}"
 
