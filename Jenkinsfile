@@ -5,6 +5,11 @@ pipeline {
     triggers { pollSCM('* * * * *') }
     tools {nodejs "node"}
     stages {
+        stage('Git') {
+            steps {
+              gitClone()
+            }
+       }
         stage('Build') {
             steps {
                 prepareEnv()
@@ -14,7 +19,6 @@ pipeline {
         stage('Pack') {
             steps {
                 echo 'Pack'
-             //  archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
             }
         }
         stage('Deploy') {
@@ -26,7 +30,7 @@ pipeline {
     }
      post {
              always {
-                      archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
+                //      archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
                         
                     }
                 }
