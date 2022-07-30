@@ -3,7 +3,7 @@
 pipeline {
     agent any
        parameters {
-              string(name: 'projectName', defaultValue: 'testJenkis', description: 'test')
+              string(name: 'PROJECTNAME', defaultValue: 'testJenkis', description: 'test123')
        }
   //  triggers { pollSCM('* * * * *') }
     tools {nodejs "node"}
@@ -21,7 +21,7 @@ pipeline {
         
         stage('Pack') {
             steps {
-                packArtifact(name:"${params.projectName}");
+                packArtifact(name:params.PROJECTNAME);
             }
         }
         stage('Deploy') {
