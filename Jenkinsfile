@@ -3,6 +3,7 @@
 pipeline {
     agent any
     triggers { pollSCM('* * * * *') }
+    tools {nodejs "node"}
     stages {
         stage('Build') {
             steps {
