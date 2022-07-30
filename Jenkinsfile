@@ -3,16 +3,11 @@
 pipeline {
     agent any
     triggers { pollSCM('* * * * *') }
+    tools {nodejs "node"}
     stages {
         stage('Build') {
             steps {
                 prepareEnv()
-               //  script {
-               //   def author = sh script: "git show -s --pretty=\"%an <%ae>\" ${GIT_COMMIT}", returnStdout: true
-               //    echo "author : ${author}"
-                //   sourceControl()
-              //  }
-                
             }
         }
         
