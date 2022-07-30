@@ -28,10 +28,5 @@ pipeline {
             }
         }
     }
-     post {
-             always {
-                      archiveArtifacts artifacts: 'dist/', onlyIfSuccessful: true
-                        
-                    }
-                }
+    
 }
