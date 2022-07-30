@@ -3,19 +3,17 @@
 pipeline {
     agent any
     triggers { pollSCM('* * * * *') }
+    tools {nodejs "node"}
     stages {
         stage('Build') {
             steps {
-               nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
-                    sh 'npm config ls'
-                }
+                prepareEnv()
             }
         }
         
         stage('Pack') {
             steps {
                 echo 'Pack'
-                
              //  archiveArtifacts artifacts: 'build/', onlyIfSuccessful: true
             }
         }
