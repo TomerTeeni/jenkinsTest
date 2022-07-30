@@ -2,7 +2,7 @@
 
 pipeline {
     agent any
-    triggers { pollSCM('* * * * *') }
+  //  triggers { pollSCM('* * * * *') }
     tools {nodejs "node"}
     stages {
         stage('Git') {
@@ -18,11 +18,14 @@ pipeline {
         
         stage('Pack') {
             steps {
-                echo 'Pack'
+                packArtifact();
+               
+               /* echo 'Pack'
                 sh 'mkdir archive'
                 sh 'echo test > archive/test.txt'
                 zip zipFile: 'test.zip', archive: false, dir: 'archive'
                 archiveArtifacts artifacts: 'test.zip', fingerprint: true
+                */
             }
         }
         stage('Deploy') {
