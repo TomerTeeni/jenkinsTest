@@ -2,6 +2,9 @@
 
 pipeline {
     agent any
+       parameters {
+              string(name: 'projectName', defaultValue: 'testJenkis', description: 'test')
+       }
   //  triggers { pollSCM('* * * * *') }
     tools {nodejs "node"}
     stages {
@@ -18,14 +21,7 @@ pipeline {
         
         stage('Pack') {
             steps {
-                packArtifact();
-               
-               /* echo 'Pack'
-                sh 'mkdir archive'
-                sh 'echo test > archive/test.txt'
-                zip zipFile: 'test.zip', archive: false, dir: 'archive'
-                archiveArtifacts artifacts: 'test.zip', fingerprint: true
-                */
+                packArtifact(name:"${params.projectName}");
             }
         }
         stage('Deploy') {
